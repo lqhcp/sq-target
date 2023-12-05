@@ -36,10 +36,10 @@ jobs:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install .NET 8 (preview)
+      - name: Install .NET 8
         uses: actions/setup-dotnet@v3
         with:
-          global-json-file: ./global.json
+          dotnet-version: "8.0.x"
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: bash
