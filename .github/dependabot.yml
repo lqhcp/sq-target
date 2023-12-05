@@ -1,0 +1,15 @@
+version: 2
+registries:
+  azure-devops-nuget:
+    type: nuget-feed
+    url: https://pkgs.dev.azure.com/lqhcp/_packaging/lqhcp/nuget/v3/index.json
+    token: ${{secrets.LQHCP_ADO_PAT}}
+
+updates:
+  - package-ecosystem: nuget
+    directory: /
+    registries:
+      - azure-devops-nuget
+    schedule:
+      interval: daily
+    rebase-strategy: auto
